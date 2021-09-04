@@ -16,7 +16,7 @@ jobs:
       - name: Generate build files
         run: |
           chmod +x ./scripts/build.sh
-          sh ./scripts/build.sh
+          ./scripts/build.sh
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
