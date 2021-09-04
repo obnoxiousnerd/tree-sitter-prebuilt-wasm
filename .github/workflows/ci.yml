@@ -15,8 +15,8 @@ jobs:
         run: npm install
       - name: Generate build files
         run: |
-          chmod +x ./scripts/build.sh
-          ./scripts/build.sh
+          cd build
+          node --experimental-json-modules ../build.mjs
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
