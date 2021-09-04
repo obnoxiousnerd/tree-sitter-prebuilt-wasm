@@ -14,9 +14,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Generate build files
-        run: |
-          cd build
-          node --experimental-json-modules ../build.mjs
+        working-directory: build
+        run: node --experimental-json-modules ../build.mjs
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
