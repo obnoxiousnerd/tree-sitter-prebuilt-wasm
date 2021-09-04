@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    container:
+      image: emscripten/emsdk
+    steps:
+      - name: Install Dependencies
+        run: npm install
+      - name: Generate build files
+        run: |
+          sh ./scripts/build.sh
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: tree-sitter-prebuilt-wasm
+          path: build/
